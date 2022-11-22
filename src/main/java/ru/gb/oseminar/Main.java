@@ -1,5 +1,17 @@
-package ru.gb.oseminar;public class Main {
+package ru.gb.oseminar;
+
+import ru.gb.oseminar.controller.UserController;
+
+import java.time.LocalDate;
+
+public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        UserController userController = new UserController();
+        userController.createStudent(
+                "ExampleFirstName",
+                "ExampleSecondName",
+                "ExamplePatronymic",
+                LocalDate.now());
     }
 }
