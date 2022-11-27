@@ -13,8 +13,8 @@ public class UserController {
     DataService dataService = new DataService();
     UserView userView = new UserView();
 
-    public void createStudent(String firstName, String secondName, String patronymic, LocalDate dateOfBirth){
-        dataService.create(firstName, secondName, patronymic, dateOfBirth);
+    public void createStudent(String firstName, String secondName, String patronymic){
+        dataService.create(firstName, secondName, patronymic);
         List<User> userList = dataService.getAll();
         userView.sendOnConsole(userList);
     }

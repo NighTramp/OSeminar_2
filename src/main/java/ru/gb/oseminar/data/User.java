@@ -6,13 +6,11 @@ public class User {
     private String firstName;
     private String secondName;
     private String patronymic;
-    private LocalDate dateOfBirth;
 
-    public User(String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
+    public User(String firstName, String secondName, String patronymic) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
-        this.dateOfBirth = dateOfBirth;
     }
 
     public String getFirstName() {
@@ -39,21 +37,12 @@ public class User {
         this.patronymic = patronymic;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                "firstName='" + firstName + '\'' +
                ", secondName='" + secondName + '\'' +
                ", patronymic='" + patronymic + '\'' +
-               ", dateOfBirth=" + dateOfBirth +
                '}';
     }
 
@@ -76,11 +65,7 @@ public class User {
                 user.getSecondName() != null) {
             return false;
         }
-        if (getPatronymic() != null ? !getPatronymic().equals(user.getPatronymic()) :
-                user.getPatronymic() != null) {
-            return false;
-        }
-        return getDateOfBirth() != null ? getDateOfBirth().equals(user.getDateOfBirth()) :
-                user.getDateOfBirth() == null;
+        return getPatronymic() != null ? getPatronymic().equals(user.getPatronymic()) :
+                user.getPatronymic() == null;
     }
 }

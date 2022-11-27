@@ -3,7 +3,6 @@ package ru.gb.oseminar.service;
 import ru.gb.oseminar.data.Student;
 import ru.gb.oseminar.data.User;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,18 +18,8 @@ public class DataService {
         return this.users;
     }
 
-    public void create(String firstName, String secondName, String patronymic, LocalDate dateOfBirth) {
-        Long countMaxId = 0L;
-        for (User user: this.users){
-            if(user instanceof Student){
-                if (((Student) user).getStudentId() > countMaxId){
-                    countMaxId = ((Student) user).getStudentId();
-                }
-            }
-        }
-        countMaxId++;
-
-        Student student = new Student(firstName, secondName, patronymic, dateOfBirth, countMaxId);
+    public void create(String firstName, String secondName, String patronymic) {
+        Student student = new Student(firstName, secondName, patronymic);
         this.users.add(student);
     }
 }

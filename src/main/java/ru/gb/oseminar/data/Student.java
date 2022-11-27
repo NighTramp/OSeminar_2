@@ -1,21 +1,19 @@
 package ru.gb.oseminar.data;
 
 import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Student extends User {
+    private static final AtomicLong GUID = new AtomicLong(0);
     private Long studentId;
 
-    public Student(String firstName, String secondName, String patronymic, LocalDate dateOfBirth, Long studentId) {
-        super(firstName, secondName, patronymic, dateOfBirth);
-        this.studentId = studentId;
+    public Student(String firstName, String secondName, String patronymic) {
+        super(firstName, secondName, patronymic);
+        this.studentId = GUID.incrementAndGet();
     }
 
     public Long getStudentId() {
         return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
     }
 
     @Override
@@ -25,7 +23,6 @@ public class Student extends User {
                ", firstName='" + super.getFirstName() + '\'' +
                ", secondName='" + super.getSecondName() + '\'' +
                ", patronymic='" + super.getPatronymic() + '\'' +
-               ", dateOfBirth=" + super.getDateOfBirth() +
                '}';
     }
 }
