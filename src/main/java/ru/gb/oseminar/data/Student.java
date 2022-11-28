@@ -1,6 +1,5 @@
 package ru.gb.oseminar.data;
 
-import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Student extends User {

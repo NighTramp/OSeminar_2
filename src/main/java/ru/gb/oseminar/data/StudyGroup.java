@@ -15,8 +15,6 @@ public class StudyGroup {
         this.groupId = GUID.incrementAndGet();
 
     }
-
-
     public Long getGroupId() {
         return groupId;
     }
